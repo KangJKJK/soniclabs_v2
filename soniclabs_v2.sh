@@ -99,8 +99,11 @@ case $choice in
         done
         echo "];"
     } > $WORK_DIR/accounts/accounts.js
+
+    sed -i 's/static DISPLAYPOINT = false;/static DISPLAYPOINT = true;/' workspace/config.js
     
     # 봇구동
+    npm install sqlite3
     npm run start
     ;;
     
@@ -126,3 +129,4 @@ case $choice in
     echo -e "${RED}잘못된 선택입니다. 다시 시도하세요.${NC}"
     ;;
 esac
+
